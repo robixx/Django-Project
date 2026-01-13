@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <h2>Create User</h2>
+  <form id="registerForm">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="password1" class="form-label">Confirm Password</label>
+      <input
+        type="password"
+        id="password1"
+        name="password1"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary">Create User</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}
+<!-- ✅ end content block separately -->
+
+{% block scripts %}
+<script>
+  const form = document.getElementById("registerForm");
+  const password = document.getElementById("password");
+  const password1 = document.getElementById("password1");
+
+  form.addEventListener("submit", function (e) {
+    if (password.value !== password1.value) {
+      e.preventDefault(); // stop form submission
+      alert("Passwords do not match!");
+      password1.focus();
+    }
+  });
+</script>
+{% endblock scripts %}
+<!-- ✅ end scripts block separately -->

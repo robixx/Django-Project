@@ -214,20 +214,24 @@
       </symbol>
     </svg>
     <!-- Header -->
-    <div class="container-fluid">
+    <div class="container">
       {% include "header/header.html" %}
 
       <!-- Menu -->
       {% include "menubar/menu.html" %}
-
-      <!-- Dynamic Body Content -->
-      <main class="container-fluid">
-        {% block content %}
-        <!-- Default content -->
-        {% endblock %}
-      </main>
-      <!-- Footer -->
-      {% include "footer/footer.html" %}
     </div>
+    <!-- Dynamic Body Content -->
+    <main class="container">
+      {% block content %}
+      <!-- Default content -->
+      {% endblock %}
+    </main>
+    <!-- Footer -->
+    {% include "footer/footer.html" %}
+    <!-- Scripts block for page-specific JS -->
+    <!-- Scripts block for page-specific JS -->
+    {% block scripts %}
+    <!-- Default empty scripts block -->
+    {% endblock %}
   </body>
 </html>
